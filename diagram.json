@@ -10,7 +10,7 @@
       "id": "ultrasonic1",
       "top": -209.7,
       "left": 168.7,
-      "attrs": { "distance": "284" }
+      "attrs": { "distance": "30" }
     },
     {
       "type": "wokwi-mpu6050",
@@ -19,6 +19,35 @@
       "left": 530.08,
       "rotate": 180,
       "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -109.2,
+      "left": 608.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -389.99,
+      "left": 643.63,
+      "attrs": { "size": "17", "display": "steps" }
+    },
+    {
+      "type": "wokwi-a4988",
+      "id": "drv1",
+      "top": -148.6,
+      "left": 677.2,
+      "rotate": 270,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -111.25,
+      "left": 432,
+      "attrs": { "value": "220" }
     }
   ],
   "connections": [
@@ -28,12 +57,27 @@
     [ "bb1:bn.3", "ultrasonic1:GND", "white", [ "v56.3", "h-106.4", "v-278.4", "h-144" ] ],
     [ "ultrasonic1:ECHO", "mega:2", "white", [ "v96", "h-39.2" ] ],
     [ "ultrasonic1:TRIG", "mega:3", "white", [ "v86.4", "h-0.4" ] ],
-    [ "bb1:bp.1", "bb1:tp.1", "red", [ "v-10.5", "h-58.4", "v-172.8" ] ],
-    [ "bb1:bn.1", "bb1:tn.1", "black", [ "v17.9", "h-68", "v-192" ] ],
     [ "bb1:tp.2", "imu2:VCC", "gray", [ "v0" ] ],
     [ "bb1:tn.2", "imu2:GND", "gray", [ "v-67.3", "h18.4" ] ],
     [ "imu2:SCL", "mega:21", "gray", [ "v48", "h-230.48" ] ],
-    [ "imu2:SDA", "mega:20", "gray", [ "v38.4", "h-249.68" ] ]
+    [ "imu2:SDA", "mega:20", "gray", [ "v38.4", "h-249.68" ] ],
+    [ "bb1:tp.1", "mega:5V.2", "red", [ "v0" ] ],
+    [ "bb1:tn.1", "mega:GND.5", "black", [ "v-0.1", "h-144.8", "v153.6" ] ],
+    [ "led1:C", "bb1:tn.10", "gray", [ "v76.8", "h0.4" ] ],
+    [ "drv1:STEP", "bb1:20t.a", "magenta", [ "v38.4", "h-57.6" ] ],
+    [ "drv1:DIR", "bb1:25t.a", "magenta", [ "v115.2", "h-9.6" ] ],
+    [ "bb1:20t.b", "mega:31", "magenta", [ "v0" ] ],
+    [ "bb1:25t.c", "mega:33", "magenta", [ "v0" ] ],
+    [ "mega:25", "r1:1", "gray", [ "v0.95", "h55", "v-124.8" ] ],
+    [ "led1:A", "r1:2", "gray", [ "v19.2", "h-124.8", "v-57.6" ] ],
+    [ "drv1:1B", "stepper1:B-", "green", [ "v-28.95", "h19.28" ] ],
+    [ "drv1:1A", "stepper1:B+", "green", [ "v-38.55", "h19.28" ] ],
+    [ "stepper1:A+", "drv1:2A", "green", [ "v28.8", "h-19.2" ] ],
+    [ "stepper1:A-", "drv1:2B", "green", [ "v19.2", "h-19.2" ] ],
+    [ "drv1:SLEEP", "drv1:RESET", "green", [ "v0" ] ],
+    [ "drv1:ENABLE", "bb1:tn.15", "magenta", [ "v0" ] ],
+    [ "drv1:GND.1", "bb1:tn.5", "magenta", [ "h-86.32", "v105.45" ] ],
+    [ "drv1:VDD", "bb1:tp.7", "magenta", [ "v-9.75", "h28.88", "v115.2", "h-172.8" ] ]
   ],
   "dependencies": {}
 }
