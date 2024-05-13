@@ -10,7 +10,7 @@
       "id": "ultrasonic1",
       "top": -209.7,
       "left": 168.7,
-      "attrs": { "distance": "146" }
+      "attrs": { "distance": "284" }
     },
     {
       "type": "wokwi-mpu6050",
@@ -32,10 +32,8 @@
     [ "bb1:bn.1", "bb1:tn.1", "black", [ "v17.9", "h-68", "v-192" ] ],
     [ "bb1:tp.2", "imu2:VCC", "gray", [ "v0" ] ],
     [ "bb1:tn.2", "imu2:GND", "gray", [ "v-67.3", "h18.4" ] ],
-    [ "imu2:SCL", "bb1:5t.a", "gray", [ "v48", "h9.52", "v38.4", "h-28.8" ] ],
-    [ "imu2:SDA", "bb1:10t.a", "gray", [ "v48", "h-0.08", "v38.4", "h19.2" ] ],
-    [ "mega:A15", "bb1:5t.b", "gray", [ "v6.9", "h39.45", "v-134.4" ] ],
-    [ "mega:A14", "bb1:10t.c", "gray", [ "v6.9", "h68.4", "v-124.8" ] ]
+    [ "imu2:SCL", "mega:21", "gray", [ "v48", "h-230.48" ] ],
+    [ "imu2:SDA", "mega:20", "gray", [ "v38.4", "h-249.68" ] ]
   ],
   "dependencies": {}
 }
