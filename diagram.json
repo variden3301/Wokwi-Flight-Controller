@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Bahadır Erdem",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -12.6, "left": 473.2, "attrs": {} },
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": -9, "left": -13.2, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -209.7,
+      "left": 168.7,
+      "attrs": { "distance": "146" }
+    },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu2",
+      "top": -122.42,
+      "left": 530.08,
+      "rotate": 180,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "mega:5V", "bb1:bp.1", "red", [ "v84.3", "h267.5", "v-96" ] ],
+    [ "mega:GND.2", "bb1:bn.1", "black", [ "v17.1", "h344.15" ] ],
+    [ "bb1:bp.2", "ultrasonic1:VCC", "white", [ "v47.1", "h-87.2", "v-268.8", "h-201.6" ] ],
+    [ "bb1:bn.3", "ultrasonic1:GND", "white", [ "v56.3", "h-106.4", "v-278.4", "h-144" ] ],
+    [ "ultrasonic1:ECHO", "mega:2", "white", [ "v96", "h-39.2" ] ],
+    [ "ultrasonic1:TRIG", "mega:3", "white", [ "v86.4", "h-0.4" ] ],
+    [ "bb1:bp.1", "bb1:tp.1", "red", [ "v-10.5", "h-58.4", "v-172.8" ] ],
+    [ "bb1:bn.1", "bb1:tn.1", "black", [ "v17.9", "h-68", "v-192" ] ],
+    [ "bb1:tp.2", "imu2:VCC", "gray", [ "v0" ] ],
+    [ "bb1:tn.2", "imu2:GND", "gray", [ "v-67.3", "h18.4" ] ],
+    [ "imu2:SCL", "bb1:5t.a", "gray", [ "v48", "h9.52", "v38.4", "h-28.8" ] ],
+    [ "imu2:SDA", "bb1:10t.a", "gray", [ "v48", "h-0.08", "v38.4", "h19.2" ] ],
+    [ "mega:A15", "bb1:5t.b", "gray", [ "v6.9", "h39.45", "v-134.4" ] ],
+    [ "mega:A14", "bb1:10t.c", "gray", [ "v6.9", "h68.4", "v-124.8" ] ]
+  ],
+  "dependencies": {}
+}
